@@ -1,0 +1,49 @@
+html {
+	font-family: Verdana, sans-serif;
+	background: #ddd;
+	border: 0;
+}
+img {
+	cursor: pointer;
+	display: inline-block;
+	float: left;
+}
+#wrapper {
+	width: 500px;
+	margin: 0 auto;
+	margin-top: 50px;
+}
+#shadow {
+	display: none;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: 5;
+	background: #000;
+}
+#spinner {
+	display: none;
+	position: absolute;
+	z-index: 10;
+	padding: 25px;
+	border: 0px solid #ddd;
+	border-radius: 10px;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	background: #ddd;
+}
+.img_div {
+	display: none;
+	position: absolute;
+	z-index: 10;
+	padding: 25px;
+	border: 0px solid #ddd;
+	border-radius: 10px;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	background: #ddd;
+}
+.clear {
+	clear: both;
+}
