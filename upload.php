@@ -26,6 +26,7 @@ Finally, a list of all files (with the exception of '.' and '..') are displayed 
 		?>
 		<div id='upload'><h3>Select Files</h3>
 			<form action='upload.php' method='post' enctype='multipart/form-data'>
+				<input type='hidden' name='password' value='password'>
 				<input name='userfile[]' type='file' /><br />
 				<input type='submit' value='Upload' />
 			</form>
