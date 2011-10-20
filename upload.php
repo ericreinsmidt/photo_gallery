@@ -1,5 +1,6 @@
 <?php
 include_once './scripts/create_thumbs.php';
+$password = 'password';
 /*
 Author @ Eric@Reinsmidt.com
 This file is an experiment in uploading files to a webserver using PHP.
@@ -19,12 +20,17 @@ Finally, a list of all files (with the exception of '.' and '..') are displayed 
 </head>
 <body>
 	<div id='wrapper'>
+
+		<?php
+			if (isset($_POST['password']) && ($_POST['password'] == $password)) { // START HIDDEN CONTENT
+		?>
 		<div id='upload'><h3>Select Files</h3>
-			<form action="upload.php" method="post" enctype="multipart/form-data">
-				<input name="userfile[]" type="file" /><br />
-				<input type="submit" value="Upload" />
+			<form action='upload.php' method='post' enctype='multipart/form-data'>
+				<input name='userfile[]' type='file' /><br />
+				<input type='submit' value='Upload' />
 			</form>
 		</div>
+		
 
 		<?php
 
@@ -58,7 +64,7 @@ Finally, a list of all files (with the exception of '.' and '..') are displayed 
 
 		echo '</div>';
 
-		$dir = "./images/";
+		$dir = './images/';
 
 		echo '<div id=\'current_files\'><h3>Current Files</h3>';
 
@@ -73,6 +79,17 @@ Finally, a list of all files (with the exception of '.' and '..') are displayed 
 		echo '</div>';
 		create_thumbs();
 		?>
+
+		<?php 
+		} else { // END HIDDEN CONTENT
+			if (isset($_POST['password']) || $password == '') {
+				echo '<div id=\'upload\'>Wrong Password!<form method=\'post\'><br><input name=\'password\' type=\'password\' size=\'15\'><input value=\'Login\' type=\'submit\'></form><br /></div>';
+			} else {
+			echo '<div id=\'upload\'><form method=\'post\'><br><input name=\'password\' type=\'password\' size=\'15\'><input value=\'Login\' type=\'submit\'></form><br /></div>';
+			}
+		}
+		?>
+
 		<a href='./' style='text-decoration: none;'>View Gallery</a>
 	</div>
 </body>
